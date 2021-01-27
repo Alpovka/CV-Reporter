@@ -105,7 +105,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,419 300,463.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="Selects skill file and extracts it to the data table as columns. In addition, enhances scaling quality decision to user." DisplayName="Skill Data &amp; Adjustments" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence sap2010:Annotation.AnnotationText="Selects skill file and extracts it to the data table as columns. In addition, ensures scaling quality decision to user." DisplayName="Skill Data &amp; Adjustments" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="filter_data" />
           <Variable x:TypeArguments="s:String[]" Default="[{&quot;LOW (Faster)&quot;,&quot;MEDIUM&quot;,&quot;HIGH (Slower)&quot;}]" Name="scale_array" />
