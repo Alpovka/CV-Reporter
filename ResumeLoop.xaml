@@ -1,0 +1,1010 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_Scale="8" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_file_data_array" Type="InArgument(s:String[])" />
+    <x:Property Name="in_FileArray" Type="InArgument(s:String[])" />
+    <x:Property Name="io_File_Counter" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="out_Counter" Type="OutArgument(x:Int32)" />
+    <x:Property Name="in_Scale" Type="InArgument(x:Int32)" />
+    <x:Property Name="out_UnScanned_Counter" Type="OutArgument(x:Int32)" />
+    <x:Property Name="io_Full_Data_Table" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="out_point" Type="OutArgument(x:Int32)" />
+  </x:Members>
+  <this:Main.in_file_data_array>
+    <InArgument x:TypeArguments="s:String[]" />
+  </this:Main.in_file_data_array>
+  <this:Main.in_FileArray>
+    <InArgument x:TypeArguments="s:String[]" />
+  </this:Main.in_FileArray>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1202,6523</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="82">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Vision.Core.OCR</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPathTeam.Excel.Extensions</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="70">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.Configuration.Install</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>Excel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="Main Do" sap:VirtualizedContainerService.HintSize="1212,6458" sap2010:WorkflowViewState.IdRef="Sequence_12">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Candidate" />
+      <Variable x:TypeArguments="x:String" Name="FolderPath" />
+      <Variable x:TypeArguments="x:String" Name="Candidate_Screen">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="Candidate_Screen_2">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="Candidate_Screen_3">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="Candidate_Screen_Extra">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="s:String[]" Default="[{&quot;File Name&quot;}]" Name="filename_arr" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Main Resume Loop" sap:VirtualizedContainerService.HintSize="1170,6366" sap2010:WorkflowViewState.IdRef="ForEach`1_14" Values="[in_FileArray]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+          </ActivityAction.Argument>
+          <If Condition="[file.Substring(file.IndexOf(&quot;.&quot;)) = &quot;.pdf&quot;]" DisplayName="If  the file is PDF file" sap:VirtualizedContainerService.HintSize="1134,6231" sap2010:WorkflowViewState.IdRef="If_11">
+            <If.Then>
+              <Sequence DisplayName="Insider Main Sequence" sap:VirtualizedContainerService.HintSize="989,6081" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="FileName" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" ContinueOnError="True" DisplayName="Start Process" FileName="[file.ToString]" sap:VirtualizedContainerService.HintSize="947,87" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
+                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Convert File Path to Array via Split. Then iterate over it.With this  for each activity get the file name for first column in table." DisplayName="For Each" sap:VirtualizedContainerService.HintSize="947,389" sap2010:WorkflowViewState.IdRef="ForEach`1_15" Values="[file.ToString.Split(&quot;\&quot;c).ToArray]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="namer_item" />
+                      </ActivityAction.Argument>
+                      <If Condition="[namer_item.ToString.Contains(&quot;.pdf&quot;)]" sap:VirtualizedContainerService.HintSize="484,210" sap2010:WorkflowViewState.IdRef="If_12">
+                        <If.Then>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_47">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[FileName]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[namer_item.ToString.Replace(".pdf","")]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Then>
+                      </If>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ForEach>
+                <Assign DisplayName="Assign File name to first colmn value" sap:VirtualizedContainerService.HintSize="947,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Object">[io_Full_Data_Table.Rows(out_Counter)(Array.IndexOf(filename_arr.Union(in_file_data_array).ToArray,"File Name"))]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Object">[FileName]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="947,5333" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <TryCatch.Variables>
+                    <Variable x:TypeArguments="x:Int32" Name="counter_flag" />
+                  </TryCatch.Variables>
+                  <TryCatch.Try>
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'resume pdf'" sap:VirtualizedContainerService.HintSize="909,2415" sap2010:WorkflowViewState.IdRef="WindowScope_9" InformativeScreenshot="8b08fbb4ad36eb77740c26725cc89fa1" Selector="&lt;wnd app='acrobat.exe' cls='AcrobatSDIWindow' title='*.pdf* - Adobe Acrobat Pro DC' /&gt;">
+                      <ui:WindowScope.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="875,2269" sap2010:WorkflowViewState.IdRef="Sequence_71">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <StateMachine InitialState="{x:Reference __ReferenceID4}" sap2010:Annotation.AnnotationText="Will provide scanning according to entered scaling value." DisplayName="State Scale Machine" sap:VirtualizedContainerService.HintSize="833,873" sap2010:WorkflowViewState.IdRef="StateMachine_3">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <av:Point x:Key="ShapeLocation">330,12.5</av:Point>
+                                  <x:Double x:Key="StateContainerWidth">755.13949402324442</x:Double>
+                                  <x:Double x:Key="StateContainerHeight">805.78681312183983</x:Double>
+                                  <av:PointCollection x:Key="ConnectorLocation">361,87.5 361,117.5 360.9,117.5 360.9,147.5</av:PointCollection>
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <State x:Name="__ReferenceID4" sap2010:Annotation.AnnotationText="Adjusts window screen and scans precursory" DisplayName="Pre-State" sap:VirtualizedContainerService.HintSize="182,105" sap2010:WorkflowViewState.IdRef="State_15">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <av:Point x:Key="ShapeLocation">279,147.5</av:Point>
+                                    <av:Size x:Key="ShapeSize">182,105</av:Size>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Double x:Key="StateContainerWidth">148.28798273454856</x:Double>
+                                    <x:Double x:Key="StateContainerHeight">25</x:Double>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <State.Exit>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,613" sap2010:WorkflowViewState.IdRef="Sequence_72">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Activate reading mode." DisplayName="Send Hotkey 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="SendHotkey_19" Key="h" KeyModifiers="Ctrl">
+                                      <ui:SendHotkey.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="dd0d0800-306e-4b9d-9608-35f04998d425" InformativeScreenshot="ebe85d9a46bee9043e2417bc09d93ddf">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                          <ui:Target.WaitForReady>
+                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                          </ui:Target.WaitForReady>
+                                        </ui:Target>
+                                      </ui:SendHotkey.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:SendHotkey>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_48" Level="Info" Message="[FileName+&quot; started scanning...&quot;]" />
+                                    <ui:ReadPDFWithOCR Text="{x:Null}" sap2010:Annotation.AnnotationText="Pre-scanning" DegreeOfParallelism="-1" DisplayName="Read PDF With OCR" FileName="[file.ToString]" sap:VirtualizedContainerService.HintSize="334,162" sap2010:WorkflowViewState.IdRef="ReadPDFWithOCR_5" ImageDpi="150" Range="All">
+                                      <ui:ReadPDFWithOCR.OCREngine>
+                                        <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                                          <ActivityFunc.Argument>
+                                            <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                          </ActivityFunc.Argument>
+                                          <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_39" Image="[Image]" Profile="Legacy" Scale="10" Text="[Candidate]" />
+                                        </ActivityFunc>
+                                      </ui:ReadPDFWithOCR.OCREngine>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:ReadPDFWithOCR>
+                                  </Sequence>
+                                </State.Exit>
+                                <State.Transitions>
+                                  <Transition DisplayName="T5" sap:VirtualizedContainerService.HintSize="450,512" sap2010:WorkflowViewState.IdRef="Transition_18">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <av:PointCollection x:Key="ConnectorLocation">370,252.5 370,427</av:PointCollection>
+                                        <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+                                        <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Transition.Condition>[in_Scale =8]</Transition.Condition>
+                                    <Transition.To>
+                                      <State x:Name="__ReferenceID3" DisplayName="Medium State" sap:VirtualizedContainerService.HintSize="134,66" sap2010:WorkflowViewState.IdRef="State_14">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <av:Point x:Key="ShapeLocation">303,427</av:Point>
+                                            <av:Size x:Key="ShapeSize">134,66</av:Size>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            <x:Double x:Key="StateContainerWidth">100</x:Double>
+                                            <x:Double x:Key="StateContainerHeight">29.706290179794109</x:Double>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <State.Exit>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="376,719" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,130" sap2010:WorkflowViewState.IdRef="GetOCRText_32">
+                                              <ui:GetOCRText.OCREngine>
+                                                <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                                                  <ActivityFunc.Argument>
+                                                    <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                                  </ActivityFunc.Argument>
+                                                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_36" Image="[Image]" Scale="[in_Scale]" Text="[Candidate_Screen]" />
+                                                </ActivityFunc>
+                                              </ui:GetOCRText.OCREngine>
+                                              <ui:GetOCRText.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="52badbb6-40b3-4942-ba56-4c7ded8dbf8a">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetOCRText.Target>
+                                            </ui:GetOCRText>
+                                            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DelayMS="1" DisplayName="Send Hotkey 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,117" sap2010:WorkflowViewState.IdRef="SendHotkey_18" Key="h" KeyModifiers="Ctrl, Shift">
+                                              <ui:SendHotkey.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="aba5b33c-c26f-4bf5-8a25-cae120e77849">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:SendHotkey.Target>
+                                            </ui:SendHotkey>
+                                            <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,130" sap2010:WorkflowViewState.IdRef="GetOCRText_33">
+                                              <ui:GetOCRText.OCREngine>
+                                                <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                                                  <ActivityFunc.Argument>
+                                                    <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                                  </ActivityFunc.Argument>
+                                                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_37" Image="[Image]" Scale="[in_Scale]" Text="[Candidate_Screen]" />
+                                                </ActivityFunc>
+                                              </ui:GetOCRText.OCREngine>
+                                              <ui:GetOCRText.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="52badbb6-40b3-4942-ba56-4c7ded8dbf8a">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetOCRText.Target>
+                                            </ui:GetOCRText>
+                                            <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,130" sap2010:WorkflowViewState.IdRef="GetOCRText_34">
+                                              <ui:GetOCRText.OCREngine>
+                                                <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                                                  <ActivityFunc.Argument>
+                                                    <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                                  </ActivityFunc.Argument>
+                                                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_38" Image="[Image]" Scale="[in_Scale]" Text="[Candidate_Screen]" />
+                                                </ActivityFunc>
+                                              </ui:GetOCRText.OCREngine>
+                                              <ui:GetOCRText.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="52badbb6-40b3-4942-ba56-4c7ded8dbf8a">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetOCRText.Target>
+                                            </ui:GetOCRText>
+                                          </Sequence>
+                                        </State.Exit>
+                                        <State.Transitions>
+                                          <Transition DisplayName="T6" sap2010:WorkflowViewState.IdRef="Transition_17">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <av:PointCollection x:Key="ConnectorLocation">370,493 370,523 366.6,523 366.6,659.5</av:PointCollection>
+                                                <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+                                                <x:Int32 x:Key="DestConnectionPointIndex">30</x:Int32>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Transition.To>
+                                              <State x:Name="__ReferenceID0" DisplayName="Final State" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_11" IsFinal="True">
+                                                <State.Entry>
+                                                  <Sequence sap:VirtualizedContainerService.HintSize="376,318" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_44" Level="Info" Message="[FileName+&quot; is scanning finished.&quot;]" />
+                                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_45" Level="Info" Message="[&quot;----SCANNING DATA---- &quot;+vbCr+String.Concat(Candidate,String.Concat(Candidate_Screen,String.Concat(Candidate_Screen_2,Candidate_Screen_3).ToLower).ToLower).ToLower+vbCr]" />
+                                                  </Sequence>
+                                                </State.Entry>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <av:Point x:Key="ShapeLocation">313,659.5</av:Point>
+                                                    <av:Size x:Key="ShapeSize">134,61</av:Size>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    <x:Double x:Key="StateContainerWidth">100</x:Double>
+                                                    <x:Double x:Key="StateContainerHeight">25</x:Double>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </State>
+                                            </Transition.To>
+                                          </Transition>
+                                        </State.Transitions>
+                                      </State>
+                                    </Transition.To>
+                                  </Transition>
+                                  <Transition DisplayName="T2" sap:VirtualizedContainerService.HintSize="450,512" sap2010:WorkflowViewState.IdRef="Transition_16">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <av:PointCollection x:Key="ConnectorLocation">461,189.5 647.9,189.5 647.9,349.5</av:PointCollection>
+                                        <x:Int32 x:Key="SrcConnectionPointIndex">28</x:Int32>
+                                        <x:Int32 x:Key="DestConnectionPointIndex">42</x:Int32>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Transition.Condition>[in_Scale =10]</Transition.Condition>
+                                    <Transition.To>
+                                      <State x:Name="__ReferenceID2" DisplayName="High State" sap:VirtualizedContainerService.HintSize="158,61" sap2010:WorkflowViewState.IdRef="State_13">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <av:Point x:Key="ShapeLocation">561,349.5</av:Point>
+                                            <av:Size x:Key="ShapeSize">158,61</av:Size>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            <x:Double x:Key="StateContainerWidth">123.90663737223622</x:Double>
+                                            <x:Double x:Key="StateContainerHeight">25</x:Double>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <State.Exit>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="376,1046" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,130" sap2010:WorkflowViewState.IdRef="GetOCRText_28">
+                                              <ui:GetOCRText.OCREngine>
+                                                <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                                                  <ActivityFunc.Argument>
+                                                    <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                                  </ActivityFunc.Argument>
+                                                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_32" Image="[Image]" Scale="[in_Scale]" Text="[Candidate_Screen]" />
+                                                </ActivityFunc>
+                                              </ui:GetOCRText.OCREngine>
+                                              <ui:GetOCRText.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="52badbb6-40b3-4942-ba56-4c7ded8dbf8a">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetOCRText.Target>
+                                            </ui:GetOCRText>
+                                            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DelayMS="1" DisplayName="Send Hotkey 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,117" sap2010:WorkflowViewState.IdRef="SendHotkey_16" Key="h" KeyModifiers="Ctrl, Shift">
+                                              <ui:SendHotkey.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="aba5b33c-c26f-4bf5-8a25-cae120e77849">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:SendHotkey.Target>
+                                            </ui:SendHotkey>
+                                            <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'client'" sap:VirtualizedContainerService.HintSize="334,130" sap2010:WorkflowViewState.IdRef="GetOCRText_29">
+                                              <ui:GetOCRText.OCREngine>
+                                                <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                                                  <ActivityFunc.Argument>
+                                                    <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                                  </ActivityFunc.Argument>
+                                                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_33" Image="[Image]" Profile="Screen" Scale="[in_Scale]" Text="[Candidate_Screen_2]" />
+                                                </ActivityFunc>
+                                              </ui:GetOCRText.OCREngine>
+                                              <ui:GetOCRText.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d012a4e2-b07c-4d2d-9c46-f32f67dfe507" Selector="&lt;wnd aaname='Belge Bölmesi' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd cls='AVL_AVView' title='AVPageView' /&gt;&lt;ctrl idx='7' role='client' /&gt;">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetOCRText.Target>
+                                            </ui:GetOCRText>
+                                            <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,130" sap2010:WorkflowViewState.IdRef="GetOCRText_30">
+                                              <ui:GetOCRText.OCREngine>
+                                                <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                                                  <ActivityFunc.Argument>
+                                                    <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                                  </ActivityFunc.Argument>
+                                                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_34" Image="[Image]" Scale="[in_Scale]" Text="[Candidate_Screen_3]" />
+                                                </ActivityFunc>
+                                              </ui:GetOCRText.OCREngine>
+                                              <ui:GetOCRText.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="52badbb6-40b3-4942-ba56-4c7ded8dbf8a">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetOCRText.Target>
+                                            </ui:GetOCRText>
+                                            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DelayMS="1" DisplayName="Send Hotkey 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,117" sap2010:WorkflowViewState.IdRef="SendHotkey_17" Key="h" KeyModifiers="Ctrl, Shift">
+                                              <ui:SendHotkey.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="aba5b33c-c26f-4bf5-8a25-cae120e77849">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:SendHotkey.Target>
+                                            </ui:SendHotkey>
+                                            <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,130" sap2010:WorkflowViewState.IdRef="GetOCRText_31">
+                                              <ui:GetOCRText.OCREngine>
+                                                <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                                                  <ActivityFunc.Argument>
+                                                    <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                                  </ActivityFunc.Argument>
+                                                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_35" Image="[Image]" Scale="[in_Scale]" Text="[Candidate_Screen_Extra]" />
+                                                </ActivityFunc>
+                                              </ui:GetOCRText.OCREngine>
+                                              <ui:GetOCRText.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="52badbb6-40b3-4942-ba56-4c7ded8dbf8a">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetOCRText.Target>
+                                            </ui:GetOCRText>
+                                          </Sequence>
+                                        </State.Exit>
+                                        <State.Transitions>
+                                          <Transition DisplayName="T4" sap2010:WorkflowViewState.IdRef="Transition_15">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <av:PointCollection x:Key="ConnectorLocation">561,383.05 531,383.05 531,693.05 447,693.05</av:PointCollection>
+                                                <x:Int32 x:Key="SrcConnectionPointIndex">41</x:Int32>
+                                                <x:Int32 x:Key="DestConnectionPointIndex">40</x:Int32>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Transition.To>
+                                              <x:Reference>__ReferenceID0</x:Reference>
+                                            </Transition.To>
+                                          </Transition>
+                                        </State.Transitions>
+                                      </State>
+                                    </Transition.To>
+                                  </Transition>
+                                  <Transition DisplayName="T1" sap:VirtualizedContainerService.HintSize="450,512" sap2010:WorkflowViewState.IdRef="Transition_14">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <av:PointCollection x:Key="ConnectorLocation">279,194.75 107.85,194.75 107.85,349.5</av:PointCollection>
+                                        <x:Int32 x:Key="SrcConnectionPointIndex">33</x:Int32>
+                                        <x:Int32 x:Key="DestConnectionPointIndex">42</x:Int32>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Transition.Condition>[in_Scale=6]</Transition.Condition>
+                                    <Transition.To>
+                                      <State x:Name="__ReferenceID1" DisplayName="Low State" sap:VirtualizedContainerService.HintSize="157,61" sap2010:WorkflowViewState.IdRef="State_12">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <av:Point x:Key="ShapeLocation">21.5,349.5</av:Point>
+                                            <av:Size x:Key="ShapeSize">157,61</av:Size>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            <x:Double x:Key="StateContainerWidth">122.79940844515144</x:Double>
+                                            <x:Double x:Key="StateContainerHeight">25</x:Double>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <State.Exit>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="376,379" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DelayMS="1" DisplayName="Send Hotkey 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,117" sap2010:WorkflowViewState.IdRef="SendHotkey_15" Key="h" KeyModifiers="Ctrl, Shift">
+                                              <ui:SendHotkey.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="aba5b33c-c26f-4bf5-8a25-cae120e77849">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:SendHotkey.Target>
+                                            </ui:SendHotkey>
+                                            <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="334,130" sap2010:WorkflowViewState.IdRef="GetOCRText_27">
+                                              <ui:GetOCRText.OCREngine>
+                                                <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                                                  <ActivityFunc.Argument>
+                                                    <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                                                  </ActivityFunc.Argument>
+                                                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_31" Image="[Image]" Scale="[in_Scale]" Text="[Candidate_Screen]" />
+                                                </ActivityFunc>
+                                              </ui:GetOCRText.OCREngine>
+                                              <ui:GetOCRText.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="52badbb6-40b3-4942-ba56-4c7ded8dbf8a">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetOCRText.Target>
+                                            </ui:GetOCRText>
+                                          </Sequence>
+                                        </State.Exit>
+                                        <State.Transitions>
+                                          <Transition DisplayName="T3" sap:VirtualizedContainerService.HintSize="450,512" sap2010:WorkflowViewState.IdRef="Transition_13">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <av:PointCollection x:Key="ConnectorLocation">178.5,386.1 208.5,386.1 208.5,696.1 313,696.1</av:PointCollection>
+                                                <x:Int32 x:Key="SrcConnectionPointIndex">44</x:Int32>
+                                                <x:Int32 x:Key="DestConnectionPointIndex">45</x:Int32>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Transition.To>
+                                              <x:Reference>__ReferenceID0</x:Reference>
+                                            </Transition.To>
+                                          </Transition>
+                                        </State.Transitions>
+                                      </State>
+                                    </Transition.To>
+                                  </Transition>
+                                </State.Transitions>
+                              </State>
+                              <x:Reference>__ReferenceID0</x:Reference>
+                              <x:Reference>__ReferenceID1</x:Reference>
+                              <x:Reference>__ReferenceID2</x:Reference>
+                              <x:Reference>__ReferenceID3</x:Reference>
+                            </StateMachine>
+                            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each Skill" sap:VirtualizedContainerService.HintSize="833,668" sap2010:WorkflowViewState.IdRef="ForEach`1_17" Values="[in_file_data_array]">
+                              <ui:ForEach.Body>
+                                <ActivityAction x:TypeArguments="x:Object">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="x:Object" Name="data" />
+                                  </ActivityAction.Argument>
+                                  <If Condition="[String.Concat(Candidate,String.Concat(Candidate_Screen,String.Concat(Candidate_Screen_2,Candidate_Screen_3).ToLower).ToLower).ToLower.Contains(data.ToString.ToLower)]" DisplayName="If he/she has skill.  " sap:VirtualizedContainerService.HintSize="797,534" sap2010:WorkflowViewState.IdRef="If_15">
+                                    <If.Then>
+                                      <Sequence DisplayName="Sequence Yes" sap:VirtualizedContainerService.HintSize="376,385" sap2010:WorkflowViewState.IdRef="Sequence_73">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:LogMessage DisplayName="Found Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Info" Message="[data.ToString+&quot; is found.&quot;+vbCr]" />
+                                        <Assign DisplayName="Assign Skill Counter" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_53">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[out_point]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[out_point+1]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign DisplayName="Insert &quot;OK&quot; to proper cell" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_54">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Object">[io_Full_Data_Table.Rows(out_Counter)(Array.IndexOf(filename_arr.Union(in_file_data_array).ToArray,data.ToString))]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Object">["OK"]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Sequence DisplayName="Sequence No" sap:VirtualizedContainerService.HintSize="376,285" sap2010:WorkflowViewState.IdRef="Sequence_74">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:LogMessage DisplayName="Not Found Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_50" Level="Warn" Message="[data.ToString+&quot; is not found.&quot;+vbCr]" />
+                                        <Assign DisplayName="Don't insert &quot;OK&quot; to proper cell." sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_55">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Object">[io_Full_Data_Table.Rows(out_Counter)(Array.IndexOf(filename_arr.Union(in_file_data_array).ToArray,data.ToString))]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Object">[""]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                </ActivityAction>
+                              </ui:ForEach.Body>
+                            </ui:ForEach>
+                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[filename_arr.Union(in_file_data_array).ToArray]" DataTable="[io_Full_Data_Table]" DisplayName="Add New Data Row" sap:VirtualizedContainerService.HintSize="833,22" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
+                            <Assign DisplayName="Insert skill count to last cell" sap:VirtualizedContainerService.HintSize="833,60" sap2010:WorkflowViewState.IdRef="Assign_51">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[io_Full_Data_Table.Rows(out_Counter)(in_file_data_array.Length+1)]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Object">[out_point]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign DisplayName="Resume Counter" sap:VirtualizedContainerService.HintSize="833,60" sap2010:WorkflowViewState.IdRef="Assign_52">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[out_Counter]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">[out_Counter+1]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <If sap2010:Annotation.AnnotationText="Close window every 10 files." Condition="[out_Counter Mod 10=0]" sap:VirtualizedContainerService.HintSize="833,294" sap2010:WorkflowViewState.IdRef="If_14">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_70">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_3" ProcessName="Acrobat" />
+                                </Sequence>
+                              </If.Then>
+                            </If>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:WindowScope.Body>
+                    </ui:WindowScope>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="913,455" sap2010:WorkflowViewState.IdRef="Catch`1_6">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,385" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_37" Level="Warn" Message="[&quot;1 - &quot;+exception.Message+&quot; at &quot;+exception.Source+&quot;-&gt; &quot;+FileName]" />
+                          <Assign sap2010:Annotation.AnnotationText="Decrease remaining file." sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_35">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[counter_flag]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_36">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[out_UnScanned_Counter]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">[out_UnScanned_Counter+1]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                    <Catch x:TypeArguments="s:ArgumentException" sap:VirtualizedContainerService.HintSize="913,455" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:ArgumentException">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:ArgumentException" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,385" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_38" Level="Warn" Message="[&quot;2 - &quot;+exception.Message+&quot; at &quot;+exception.Source+&quot;-&gt; &quot;+FileName]" />
+                          <Assign sap2010:Annotation.AnnotationText="Decrease remaining file." sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_56">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[counter_flag]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_38">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[out_UnScanned_Counter]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">[out_UnScanned_Counter+1]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                    <Catch x:TypeArguments="s:NullReferenceException" sap:VirtualizedContainerService.HintSize="913,455" sap2010:WorkflowViewState.IdRef="Catch`1_8">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:NullReferenceException">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:NullReferenceException" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,385" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Warn" Message="[&quot;3 - &quot;+exception.Message+&quot; at &quot;+exception.Source+&quot;-&gt; &quot;+FileName]" />
+                          <Assign sap2010:Annotation.AnnotationText="Decrease remaining file." sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_57">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[counter_flag]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_40">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[out_UnScanned_Counter]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">[out_UnScanned_Counter+1]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                    <Catch x:TypeArguments="si:IOException" sap:VirtualizedContainerService.HintSize="913,455" sap2010:WorkflowViewState.IdRef="Catch`1_9">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="si:IOException">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="si:IOException" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,385" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_40" Level="Warn" Message="[&quot;4 - &quot;+exception.Message+&quot; at &quot;+exception.Source+&quot;-&gt; &quot;+FileName]" />
+                          <Assign sap2010:Annotation.AnnotationText="Decrease remaining file." sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_58">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[counter_flag]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_42">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[out_UnScanned_Counter]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">[out_UnScanned_Counter+1]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                    <Catch x:TypeArguments="s:InvalidOperationException" sap:VirtualizedContainerService.HintSize="913,455" sap2010:WorkflowViewState.IdRef="Catch`1_10">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:InvalidOperationException">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:InvalidOperationException" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,385" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_41" Level="Warn" Message="[&quot;5 - &quot;+exception.Message+&quot; at &quot;+exception.Source+&quot;-&gt; &quot;+FileName]" />
+                          <Assign sap2010:Annotation.AnnotationText="Decrease remaining file." sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_59">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[counter_flag]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_44">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[out_UnScanned_Counter]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">[out_UnScanned_Counter+1]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                  <TryCatch.Finally>
+                    <Sequence DisplayName="Last Sequence of Try Catch" sap:VirtualizedContainerService.HintSize="376,385" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_42" Level="Info" Message="[CStr(io_File_Counter-(out_Counter+counter_flag))+&quot; files remaining...&quot;]" />
+                      <Assign sap2010:Annotation.AnnotationText="Remaining file stabilization " sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_45">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[counter_flag]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                        </Assign.Value>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Assign>
+                      <Assign sap2010:Annotation.AnnotationText="Individual point stabilization." sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_46">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[out_point]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                        </Assign.Value>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Assign>
+                    </Sequence>
+                  </TryCatch.Finally>
+                </TryCatch>
+              </Sequence>
+            </If.Then>
+          </If>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+  </Sequence>
+</Activity>
