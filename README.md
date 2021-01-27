@@ -24,7 +24,8 @@ Once completed the all input activities, program will start to processing. When 
 # Excel Report File Observation
 
  > Columns are  | File Name | Skill 1 | Skill 2 | Skill 3 | Skill 4 | Skill 5 | ..... Skill n | Skill Count |
-                   Alpovka      OK                  OK        OK                              |     5       |
+ ---------------
+ >              |  Alpovka      OK                  OK        OK                              |     5       |
  
 If n/2 <= row("Skill Count") is true. That aforementioned row will be painted as green.         
         
