@@ -1,7 +1,7 @@
 # CV-Reporter
 This project allows easy-decision making according to specified skills for recruiters, hiring managers, specialists in human resources, etc.
 
-Open to all RPA developers for enhancement.
+This is an intermediate project. Therefore, open to all RPA developers for enhancement.
 
 # Used Program & Extensions
 Project created via UiPath Studio with dependencies;
