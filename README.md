@@ -1,5 +1,5 @@
 # CV-Reporter
-This project allows easy-decision making according to specified skills for recruiters, hiring managers, specialists in human resources, etc.
+This project allows easy decision-making according to specified skills for recruiters, hiring managers, specialists in human resources, etc.
 
 This is an intermediate project. Therefore, open to all RPA developers for enhancement.
 
